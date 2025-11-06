@@ -1,0 +1,714 @@
+/* --- 0. RESET BÁSICO Y VARIABLES --- */
+:root {
+    /* PALETA ACTUALIZADA PARA PROFESIONALISMO Y TECNOLOGÍA */
+    --primary-color: #007bff; /* Azul Corporativo para links, bordes, íconos principales */
+    --secondary-color: #001f4c; /* Azul Marino Oscuro (Midnight Blue) para Títulos y seriedad */
+    --accent-color: #00ffc4; /* Cyber Green (Acento de Innovación) para CTAs y elementos clave */
+    --light-bg: #f8f9fa; /* Fondo claro */
+    --dark-bg: #1c2833; /* Negro Azulado para Footer y Alto Contraste */
+    --text-color: #333;
+    --white: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.08); /* Sombra ligeramente más fuerte */
+    --shadow-hover: rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Uso de las nuevas fuentes */
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+    overflow-x: hidden; 
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--secondary-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.2em;
+    color: #6c757d;
+}
+
+.bg-light {
+    background-color: var(--light-bg);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-5 {
+    margin-top: 50px;
+}
+
+/* --- 1. BOTONES DE ACCIÓN --- */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 12px 30px; 
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600; 
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background-color: var(--accent-color); /* Cyber Green */
+    color: var(--secondary-color); /* Texto oscuro para alto contraste */
+    border: 2px solid var(--accent-color);
+}
+
+.btn-primary:hover {
+    background-color: #00e0b0; /* Un poco más oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 255, 196, 0.4);
+}
+
+.btn-secondary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+}
+
+
+/* --- 2. HEADER Y NAVEGACIÓN --- */
+header {
+    background-color: var(--white);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ESTILOS DEL LOGO */
+.logo-link {
+    display: block; 
+    height: 35px; /* Altura base del logo */
+    line-height: 1; /* Corrige alineación */
+}
+
+.logo-img {
+    height: 100%; 
+    width: auto; 
+    transition: transform 0.3s ease;
+}
+
+nav a {
+    color: var(--text-color);
+    margin-left: 25px;
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px; 
+    background-color: var(--accent-color); 
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+/* --- 3. SECCIÓN HERO --- */
+.hero {
+    /* Fondo Azul Marino para un look más premium */
+    background: linear-gradient(rgba(0, 31, 76, 0.8), rgba(0, 31, 76, 0.9)), url('https://via.placeholder.com/1920x600?text=Fondo+MZG+Systems+Dark') no-repeat center center/cover;
+    color: var(--white);
+    text-align: center;
+    padding: 150px 20px;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h2 {
+    font-size: 3.8em;
+    margin-bottom: 15px;
+    color: var(--white); /* Títulos en blanco sobre fondo oscuro */
+}
+
+.hero p {
+    font-size: 1.6em;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+
+/* --- 4. SECCIONES DE CONTENIDO (GRIDS) --- */
+
+/* GRID DE SERVICIOS (DINÁMICA) */
+.services-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    flex: 1 1 300px;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 6px 15px var(--shadow-light); /* Sombra inicial sutil */
+    text-align: center;
+    border-bottom: 5px solid var(--primary-color); /* Borde de color sutil */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, background-color 0.4s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-12px); /* Mayor elevación */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Sombra más dramática */
+    background-color: var(--light-bg); /* Fondo ligeramente cambiado al hacer hover */
+}
+
+/* Ícono Dinámico */
+.service-card i {
+    font-size: 3.8em; /* Ícono un poco más grande */
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.service-card:hover i {
+    color: var(--accent-color); /* Color de acento al hacer hover */
+    transform: scale(1.1) rotate(5deg); /* Efecto de crecimiento y ligera rotación */
+}
+
+
+/* GRID DE PRODUCTOS (COMPUTADORAS) */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px var(--shadow-light); 
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px var(--shadow-hover);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    padding: 0 15px;
+}
+
+.product-card .price {
+    font-size: 1.5em;
+    color: var(--accent-color); /* Acento en precio */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.product-card .description {
+    padding: 0 15px 15px;
+    font-size: 0.95em;
+    min-height: 45px; 
+}
+
+.product-card .btn-secondary {
+    display: block; 
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 10px 0;
+}
+
+
+/* --- LISTA DE SOFTWARE (REDIMENSIONADA Y CON SOMBRAS) --- */
+.software-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px; 
+}
+
+.software-item {
+    flex: 1 1 300px; 
+    text-align: center;
+    padding: 35px 20px; 
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px var(--shadow-light); 
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px; 
+}
+
+.software-item:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); 
+    border: 1px solid var(--primary-color); 
+}
+
+.software-item i {
+    font-size: 4.5em; 
+    color: var(--primary-color); 
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.software-item:hover i {
+    color: var(--accent-color); 
+}
+
+.software-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.software-description {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 25px; 
+    flex-grow: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.software-price {
+    font-size: 2.2em; /* Precio más grande */
+    font-weight: 700; 
+    color: var(--accent-color); 
+    margin: 15px 0 25px 0; 
+    letter-spacing: 0.5px;
+}
+
+.btn-software {
+    display: flex; /* Usamos flex para centrar el icono */
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    max-width: 250px; 
+    padding: 14px 20px; 
+    border-radius: 8px;
+    background-color: var(--accent-color); 
+    color: var(--secondary-color); 
+    font-weight: 700; 
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 255, 196, 0.3);
+    margin: 0 auto; /* Centrar el botón */
+}
+
+.btn-software i {
+    font-size: 1em; 
+    margin-left: 10px; 
+    color: var(--secondary-color); 
+    margin-bottom: 0; 
+}
+
+.btn-software:hover {
+    background-color: #00e0b0; 
+    transform: scale(1.05); 
+    box-shadow: 0 6px 15px rgba(0, 255, 196, 0.5);
+    color: var(--secondary-color); 
+}
+
+
+/* SECCIÓN DE TESTIMONIOS */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.testimonial-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid var(--primary-color); 
+    box-shadow: 0 4px 12px var(--shadow-light); 
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-3px);
+}
+
+.quote {
+    font-style: italic;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-size: 1.05em;
+    position: relative;
+    padding-top: 15px;
+}
+
+.quote::before {
+    content: "“";
+    font-size: 4em;
+    color: var(--accent-color); 
+    position: absolute;
+    top: -20px;
+    left: 0;
+    line-height: 1;
+    opacity: 0.3;
+}
+
+.client-info {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.client-company {
+    color: #6c757d;
+    font-weight: 400;
+}
+
+/* SECCIÓN DE DISEÑO WEB */
+.web-services-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.web-card {
+    flex: 1 1 300px;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    border-top: 5px solid var(--accent-color); 
+    box-shadow: 0 4px 12px var(--shadow-light); 
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.web-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow-hover);
+}
+
+
+/* --- 5. FOOTER MODERNO MEJORADO --- */
+footer {
+    background-color: var(--dark-bg); /* Azul Negro profundo */
+    color: var(--white);
+    padding-top: 50px;
+}
+
+.footer-grid-extended {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    padding-bottom: 30px;
+}
+
+.footer-col {
+    margin-bottom: 20px;
+}
+
+.footer-col h3 {
+    font-size: 1.4em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5px;
+    display: inline-block; 
+}
+
+/* Estilos Generales de Contenido del Footer */
+.footer-col p, .footer-col a {
+    color: #ccc;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-col a:hover {
+    color: var(--white);
+    transform: translateX(3px); 
+}
+
+/* Columna de Contacto */
+.contact-col p i {
+    color: var(--accent-color); 
+    margin-right: 10px;
+}
+.contact-col a {
+    display: inline; 
+}
+
+/* NUEVOS ESTILOS DE PAGOS */
+.payment-icons {
+    margin-bottom: 15px;
+}
+.payment-icons i {
+    font-size: 2.5em; 
+    margin-right: 10px;
+    color: #ccc; 
+    transition: color 0.3s ease;
+}
+.payment-icons i:hover {
+    color: var(--white);
+}
+.payment-col .payment-detail {
+    font-size: 0.9em;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+
+/* Columna de Redes Sociales */
+.social-links {
+    margin-top: 10px;
+}
+.social-links a {
+    display: inline-flex; 
+    color: var(--white);
+    background-color: #555;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1em;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--accent-color); 
+    color: var(--dark-bg); /* Contraste fuerte en el hover de redes */
+    transform: none;
+}
+
+.footer-cta {
+    margin-top: 20px;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444; 
+    padding: 15px 0;
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+
+/* --- 6. ÍCONO FLOTANTE DE WHATSAPP --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: var(--white);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 35px;
+    line-height: 60px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+}
+
+
+/* --- 7. MEDIA QUERIES (RESPONSIVE DESIGN) --- */
+
+@media (max-width: 992px) {
+    .footer-grid-extended {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* HEADER Y MENÚ MÓVIL */
+    nav {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; 
+        left: 0;
+        background-color: var(--white);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        z-index: 998;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav a {
+        margin: 0;
+        padding: 10px 20px;
+        border-bottom: 1px solid var(--light-bg);
+        text-align: center;
+    }
+    
+    nav a::after {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+    
+    .logo-link {
+        height: 30px; 
+    }
+
+    /* HERO */
+    .hero {
+        padding: 100px 15px;
+        height: 50vh;
+    }
+
+    .hero h2 {
+        font-size: 2.2em;
+    }
+
+    /* SECCIONES Y GRIDS */
+    .section-padding {
+        padding: 50px 0;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .footer-grid-extended {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+        text-align: center;
+    }
+
+    .footer-col {
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+        border-bottom: 1px dotted #444; 
+    }
+    
+    .footer-col:last-child {
+        border-bottom: none;
+    }
+
+    .footer-col h3 {
+        display: block;
+        border-bottom: none;
+    }
+    
+    .contact-col a {
+        display: inline;
+    }
+    
+    .contact-col p {
+        justify-content: center;
+        display: flex;
+    }
+    
+    .payment-icons {
+        margin-top: 10px;
+    }
+    .payment-icons i {
+        margin: 0 10px;
+    }
+}
